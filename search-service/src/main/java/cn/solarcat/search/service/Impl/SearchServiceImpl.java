@@ -6,6 +6,9 @@ import org.springframework.stereotype.Component;
 
 import com.alibaba.dubbo.config.annotation.Service;
 
+import cn.solarcat.aop.Log;
+import cn.solarcat.common.pojo.ACTION;
+import cn.solarcat.common.pojo.LEVEL;
 import cn.solarcat.common.pojo.SearchResult;
 import cn.solarcat.search.dao.SearchDao;
 import cn.solarcat.search.service.SearchService;
@@ -17,6 +20,7 @@ public class SearchServiceImpl implements SearchService {
 	private SearchDao searchDao;
 
 	@Override
+	@Log(action = ACTION.SELECT, level = LEVEL.SERVICE)
 	public SearchResult search(String keyword, int page, int rows) throws Exception {
 		SolrQuery query = new SolrQuery();
 		query.setQuery(keyword);
