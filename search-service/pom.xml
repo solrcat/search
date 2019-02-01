@@ -64,15 +64,24 @@
 			<version>${pagehelper-spring-boot-starter}</version>
 		</dependency>
 		<dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-solr</artifactId>
-        </dependency>
-        <dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-solr</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
 	</dependencies>
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
